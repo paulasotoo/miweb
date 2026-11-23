@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JSFiddle 0qp7nyr8</title>
+
+  <style>
+    /* CONFIGURACIÓN GENERAL */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #101010;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+
+/* CABECERA */
+
+header {
+    background-color: #080808;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #e50914;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #e50914;
+}
+
+
+/* PORTADA */
+
+.hero {
+    min-height: 500px;
+    background: linear-gradient(
+        to right,
+        rgba(0,0,0,0.95),
+        rgba(0,0,0,0.3)
+    ),
+    url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba")
+    center/cover;
+
+    display: flex;
+    align-items: center;
+    padding: 60px 10%;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero h1 {
+    font-size: 55px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.hero p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    color: #dddddd;
+}
+
+.boton {
+    display: inline-block;
+    background-color: #e50914;
+    color: white;
+    padding: 15px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.boton:hover {
+    background-color: #b20710;
+    transform: scale(1.05);
+}
+
+
+/* SOBRE NOSOTROS */
+
+.sobre {
+    padding: 70px 12%;
+    text-align: center;
+}
+
+.sobre h2 {
+    color: #e50914;
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+.sobre p {
+    color: #cccccc;
+    font-size: 17px;
+    line-height: 1.9;
+    max-width: 900px;
+    margin: auto;
+}
+
+
+/* CATÁLOGO DE PELÍCULAS Y SERIES */
+
+.catalogo {
+    padding: 50px 8%;
+}
+
+.catalogo h2 {
+    font-size: 28px;
+    margin-bottom: 35px;
+    border-left: 5px solid #e50914;
+    padding-left: 15px;
+}
+
+.contenedor-tarjetas {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+
+/* TARJETAS */
+
+.tarjeta {
+    background-color: #1c1c1c;
+    width: 230px;
+    border-radius: 10px;
+    overflow: hidden;
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+    padding-bottom: 15px;
+}
+
+.tarjeta img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+}
+
+.tarjeta h3 {
+    font-size: 18px;
+    padding: 15px 12px 5px;
+}
+
+.tarjeta p {
+    color: #aaaaaa;
+    font-size: 14px;
+    padding: 5px 12px;
+}
+
+.tarjeta span {
+    display: inline-block;
+    color: #e50914;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 12px;
+}
+
+.tarjeta:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(229,9,20,0.3);
+}
+
+
+/* CONTACTO */
+
+.contacto {
+    background-color: #191919;
+    padding: 70px 20px;
+    text-align: center;
+}
+
+.contacto h2 {
+    color: #e50914;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.contacto p {
+    color: #cccccc;
+    margin-bottom: 30px;
+}
+
+form {
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input,
+textarea {
+    padding: 15px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #101010;
+    color: white;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+}
+
+input:focus,
+textarea:focus {
+    outline: 2px solid #e50914;
+}
+
+button {
+    background-color: #e50914;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #b20710;
+}
+
+
+/* PIE DE PÁGINA */
+
+footer {
+    background-color: #080808;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+footer .logo {
+    margin-bottom: 15px;
+}
+
+footer p {
+    color: #999999;
+    margin: 10px;
+    font-size: 14px;
+}
+
+
+/* ADAPTACIÓN A MÓVILES */
+
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 0;
+    }
+
+    .hero {
+        min-height: 400px;
+        padding: 40px 8%;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .catalogo {
+        padding: 40px 5%;
+    }
+
+    .tarjeta {
+        width: 45%;
+    }
+
+    .tarjeta img {
+        height: 230px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .tarjeta {
+        width: 100%;
+    }
+
+    .tarjeta img {
+        height: 350px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+}
+
+  </style>
+
+  
+</head>
+<body>
+  <!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CINEFLIX | Películas y Series</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- CABECERA -->
+    <header>
+        <div class="logo">CINE<span>FLIX</span></div>
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#peliculas">Películas</a>
+            <a href="#series">Series</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- PORTADA -->
+        <section class="hero" id="inicio">
+            <div class="hero-content">
+                <h1>EL MEJOR CINE<br>ESTÁ AQUÍ</h1>
+
+                <p>
+                    Descubre las mejores películas y series.
+                    Encuentra tu próxima historia favorita
+                    y disfruta del entretenimiento.
+                </p>
+
+                <a href="#peliculas" class="boton">EXPLORAR AHORA</a>
+            </div>
+        </section>
+
+        <!-- SOBRE NOSOTROS -->
+        <section class="sobre" id="sobre">
+            <h2>BIENVENIDO A CINEFLIX</h2>
+
+            <p>
+                CINEFLIX es un espacio dedicado a los amantes del cine
+                y las series. Aquí encontrarás recomendaciones de
+                diferentes géneros, desde acción y aventura hasta
+                comedia, terror y ciencia ficción.
+
+                Nuestro objetivo es ayudarte a descubrir nuevas
+                historias y encontrar dónde puedes disfrutarlas.
+            </p>
+        </section>
+
+        <!-- PELÍCULAS -->
+        <section class="catalogo" id="peliculas">
+
+            <h2>🎬 PELÍCULAS DESTACADAS</h2>
+
+            <div class="contenedor-tarjetas">
+
+                <a href="https://www.netflix.com/title/81277950"
+                   target="_blank" class="tarjeta">
+
+                    <img src="https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg"
+                         alt="Oppenheimer">
+
+                    <h3>Oppenheimer</h3>
+                    <p>Drama · Historia</p>
+                    <span>Ver en plataforma →</span>
+                </a>
+
+                <a href="https://www.disneyplus.com/"
+                   target="_blank" class="tarjeta">
+
+                    <img src="https://image.tmdb.org/t/p/w500/8b8R8l88Qje9dn9OE8PY05Nxl1X.jpg"
+                         alt="Avatar">
+
+                    <h3>Avatar</h3>
+                    <p>Ciencia ficción · Aventura</p>
+                    <span>Ver en Disney+ →</span>
+                </a>
+
+                <a href="https://www.netflix.com/title/80192098"
+                   target="_blank" class="tarjeta">
+
+                    <img src="https://image.tmdb.org/t/p/w500/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg"
+                         alt="Spider-Man No Way Home">
+
+                    <h3>Spider-Man: No Way Home</h3>
+                    <p>Acción · Superhéroes</p>
+                    <span>Ver en Netflix →</span>
+                </a>
+
+                <a href="https://www.primevideo.com/"
+                   target="_blank" class="tarjeta">
+
+                    <img src="https://image.tmdb.org/t/p/w500/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg"
+                         alt="John Wick 4">
+
+                    <h3>John Wick 4</h3>
+                    <p>Acción · Thriller</p>
+                    <span>Ver en Prime Video →</span>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- SERIES -->
+        <section class="catalogo" id="series">
+
+            <h2>📺 SERIES POPULARES</h2>
+
+            <div class="contenedor-tarjetas">
+
+                <a href="https://www.netflix.com/title/80057281"
+                   target="_blank" class="tarjeta">
+
+                    <img src="https://image.tmdb.org/t/p/w500/1XDDXPXGiI8id7MrUxK36ke7gkX.jpg"
+                         alt="Stranger Things">
+
+                    <h3>Stranger Things</h3>
+                    <p>Misterio · Ciencia ficción</p>
+                    <span>Ver en Netflix →</span>
+                </a>
+
+                <a href="https://www.netflix.com/title/80100172"
+                   target="_blank" class="tarjeta">
+
+                    <img src="https://image.tmdb.org/t/p/w500/reEMJA1uzscCbkpeRJeTT2bjqUp.jpg"
+                         alt="La casa de papel">
+
+                    <h3>La casa de papel</h3>
+                    <p>Acción · Suspense</p>
+                    <span>Ver en Netflix →</span>
+                </a>
+
+                <a href="https://www.max.com/"
+                   target="_blank" class="tarjeta">
+
+                    <img src="https://image.tmdb.org/t/p/w500/1XS1oqL89opfnbLl8WnZY1O1uJx.jpg"
+                         alt="Juego de Tronos">
+
+                    <h3>Juego de Tronos</h3>
+                    <p>Fantasía · Drama</p>
+                    <span>Ver en Max →</span>
+                </a>
+
+                <a href="https://www.disneyplus.com/"
+                   target="_blank" class="tarjeta">
+
+                    <img src="https://image.tmdb.org/t/p/w500/7WUHnWGx5OO145IRxPDUkQSh4C7.jpg"
+                         alt="The Mandalorian">
+
+                    <h3>The Mandalorian</h3>
+                    <p>Ciencia ficción · Aventura</p>
+                    <span>Ver en Disney+ →</span>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- CONTACTO -->
+        <section class="contacto" id="contacto">
+
+            <h2>CONTACTA CON NOSOTROS</h2>
+
+            <p>¿Qué película o serie nos recomendarías?</p>
+
+            <form>
+
+                <input type="text" placeholder="Tu nombre" required>
+
+                <input type="email" placeholder="Tu correo electrónico" required>
+
+                <textarea placeholder="Escribe tu mensaje..." rows="5" required></textarea>
+
+                <button type="submit">ENVIAR MENSAJE</button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+
+        <div class="logo">CINE<span>FLIX</span></div>
+
+        <p>Tu rincón favorito del cine y las series.</p>
+
+        <p>Proyecto de TIC · 2º Bachillerato</p>
+
+        <p>© 2026 CINEFLIX. Todos los derechos reservados.</p>
+
+    </footer>
+
+</body>
+</html>
+
+
+  <script>
+    
+  </script>
+</body>
+</html>
